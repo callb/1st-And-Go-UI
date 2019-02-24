@@ -10,6 +10,11 @@
                 controller: "HomeController",
                 controllerAs: "model"
             })
+            .when("/player/:playerId", {
+                templateUrl: "views/player.html",
+                controller: "PlayerController",
+                controllerAs: "model"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

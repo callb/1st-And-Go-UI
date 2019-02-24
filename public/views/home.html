@@ -7,19 +7,30 @@
 <h1>1st and Go</h1>
 <h3>An NFL fantasy football API made with the go programming language!</h3>
 
-<div class="input-group">
+<div id="searchTab">
+    <div class="input-group">
     <span class="input-group-addon"
           id="basic-addon1"
           ng-click="model.searchForPlayers(playerSearchText)">
         Search
     </span>
-    <input ng-model="playerSearchText"
-           type="text" class="form-control" placeholder="Player Name"
-           aria-describedby="basic-addon1">
+        <input ng-model="playerSearchText"
+               type="text" class="form-control" placeholder="Player Name"
+               aria-describedby="basic-addon1">
 
-</div>
-<div ng-show="vm.players">
-    <span ng-repeat="player in vm.players">{{player}}</span>
+    </div>
+    <lu ng-show="model.players" class="list-group">
+        <li style="font-size: 20px;"
+            class="list-group-item"
+            ng-repeat="player in model.players"
+            ng-click="model.goToPlayerStats(player.Id)">
+            {{player.Name}}
+            {{player.Team}}
+            <button type="button" class="pull-right btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-plus"></span> Add
+            </button>
+        </li>
+    </lu>
 </div>
 </body>
 </html>
